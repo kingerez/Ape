@@ -8,9 +8,8 @@ import {
   date,
   arrayOf,
 } from './src/types';
-import { Ape } from './src/ApeBuilder';
+export { Ape } from './src/ApeBuilder';
 
-exports.Ape = Ape;
 
 // const test = Ape({
 //   fullName: apes.name().male().middleName().lastName(),
