@@ -1,4 +1,4 @@
-import {
+export {
   loremIpsum,
   name,
   age,
@@ -8,7 +8,10 @@ import {
   date,
   arrayOf,
 } from './types';
-export { Ape } from './ApeBuilder';
+
+import { Ape } from './ApeBuilder';
+
+export default Ape;
 
 
 // const test = Ape({
