@@ -8,14 +8,14 @@ const test = Ape({
   position: apes.fromValues(['Manager', 'Developer', 'IT', 'QA']),
   blogPosts: Ape(apes.arrayOf({
     title: apes.loremIpsum().minLength(5).randomizeLength(10).randomizeOrder(),
-    textColor: apes.color(),
+    textColor: apes.color().setAlpha(0.5),
     thumbnail: apes.image(),
     publishDate: apes.date().startYearsAgo(5).random(),
     content: apes.loremIpsum().randomizeOrder(),
   }).repeat(5)),
 });
 
-console.log('--------------------------------');
+console.log('---------------- TESTING ----------------');
 
 console.log(test.generate());
 

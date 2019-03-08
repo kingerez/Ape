@@ -12,6 +12,7 @@ yarn-error.log
 
 # Ignore bundler config.
 /.bundle
+/dist
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
