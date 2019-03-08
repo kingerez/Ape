@@ -21,20 +21,18 @@ class NameGenerator implements ApeType {
     return abbr ? names[index].charAt(0) + '.' : names[index];
   }
 
+  male() {
+    this.gender = 'Male';
+    return this;
+  }
+
+  female() {
+    this.gender = 'Female';
+    return this;
+  }
+
   noFirstName() {
     this.useFirstName = false;
-    return this;
-  }
-
-  lastName() {
-    this.useLastName = true;
-    this.useLastNameFirst = false;
-    return this;
-  }
-
-  lastNameFirst() {
-    this.useLastName = true;
-    this.useLastNameFirst = true;
     return this;
   }
 
@@ -49,13 +47,15 @@ class NameGenerator implements ApeType {
     return this;
   }
 
-  male() {
-    this.gender = 'Male';
+  lastName() {
+    this.useLastName = true;
+    this.useLastNameFirst = false;
     return this;
   }
 
-  female() {
-    this.gender = 'Female';
+  lastNameFirst() {
+    this.useLastName = true;
+    this.useLastNameFirst = true;
     return this;
   }
 
