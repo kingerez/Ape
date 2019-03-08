@@ -1,15 +1,14 @@
 import { ApeType } from "../../ApeType";
 
+const punctuationsRegex = /(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g;
+
 export class StringManipulator implements ApeType {
   private shouldRandomizeContent = false;
-  // -1 for no randomization, any positive value to get a random number of words
   private randomLength = -1;
-  // any value between 1 and length
   private minRandomLength = 1;
-  // -1 to return all string, positive value is the maximum number of characters
   private length: number = null;
-  // create the string sequence from random words within the original text, and not according to its original order
   private shouldRandomizeSequence: boolean = false;
+  private shouldRemovePunctuations: boolean = false;
 
   private stringAsArray: string[] = [];
 
@@ -43,6 +42,11 @@ export class StringManipulator implements ApeType {
     return this;
   }
 
+  noPunctuation() {
+    this.shouldRemovePunctuations = true;
+    return this;
+  }
+
   private getResultLength() {
     let length = Math.min(this.length, this.stringAsArray.length);
     const randomLength = Math.min(this.randomLength + 1, length);
@@ -61,7 +65,7 @@ export class StringManipulator implements ApeType {
       return this.randomizeStringArrayOrder(result).join(' ');
     }
 
-    return result.join(' ');
+    return this.shouldRemovePunctuations ? result.join(' ').replace(punctuationsRegex, '') : result.join(' ');
   }
 
   private randomizeStringArrayOrder(stringAsArray: string[]) {
