@@ -7,8 +7,8 @@ import {
   color,
   date,
   arrayOf,
-} from './src/types';
-export { Ape } from './src/ApeBuilder';
+} from './types';
+export { Ape } from './ApeBuilder';
 
 
 // const test = Ape({
