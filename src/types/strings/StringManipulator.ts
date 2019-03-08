@@ -18,11 +18,6 @@ export class StringManipulator implements ApeType {
     this.length = this.stringAsArray.length;
   }
 
-  randomizeOrder() {
-    this.shouldRandomizeContent = true;
-    return this;
-  }
-
   randomizeLength(length: number) {
     this.randomLength = length;
     return this;
@@ -35,6 +30,11 @@ export class StringManipulator implements ApeType {
 
   maxLength(length: number) {
     this.length = length;
+    return this;
+  }
+
+  randomizeOrder() {
+    this.shouldRandomizeContent = true;
     return this;
   }
 
