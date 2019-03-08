@@ -8,6 +8,7 @@
 
 #Ignore node stuff
 node_modules
+/lib
 yarn-error.log
 
 # Ignore bundler config.

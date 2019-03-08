@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingerez/Ape"
+  },
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "start": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --outDir ./lib",
+    "prepare": "npm run build"
   },
   "author": "Erez Rosenbloom",
   "license": "ISC",
