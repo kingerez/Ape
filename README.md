@@ -16,9 +16,19 @@ const template = Ape({
   lastName: name().lastName(),
   age: age().adult(),
 });
+
+// call the generate method to create a new object out of the template above
+template.generate();
 ```
 
 ---
+
+### Ape
+This is the template builder. It can receive an object or an array and returns a template object.
+
+| Method   | Arguments | Description                                                             |
+| -------- | --------- | ----------------------------------------------------------------------- |
+| generate | None      | Creates an object with mock data, based on the template supplied to Ape |
 
 ### name
 Generate random names. The name value can be mutated with the following methods:
