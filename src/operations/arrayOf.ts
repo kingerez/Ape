@@ -21,7 +21,7 @@ class ApeArray {
 
   generate() {
     const repetitions = this.useRandom ? Math.floor(Math.random() * (this.maxRepetitions - this.minRepetitions)) + this.minRepetitions : this.maxRepetitions;
-    return Array(repetitions).fill(this.element).map(el => {
+    return Array(repetitions).fill(this.element).map((el: any) => {
       return apeGenerator(el);
     });
   }

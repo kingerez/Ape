@@ -2,7 +2,7 @@ import { ApeType } from '../../ApeType';
 import { randomColor, getRGBString } from '../../utils/color';
 
 class Color implements ApeType {
-  private color: string;
+  private color: string = 'ffffff';
   private randomColor: boolean = true;
   private useRGB: boolean = false;
   private useHash: boolean = true;
@@ -34,7 +34,8 @@ class Color implements ApeType {
   generate() {
     const color = this.randomColor ? randomColor() : this.color;
     const hash = this.useHash ? '#' : '';
-    return (this.useRGB || this.useAlpha) ? getRGBString(color, this.useAlpha && this.alpha) : hash + color;
+    const alpha = this.useAlpha ? this.alpha : -1;
+    return (this.useRGB || this.useAlpha) ? getRGBString(color, alpha) : hash + color;
   }
 }
 

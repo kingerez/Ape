@@ -4,7 +4,11 @@ import { middleNames } from '../../data/middleNameList';
 import { Gender, randomGender } from '../../data/genders';
 import { ApeType } from '../../ApeType';
 
-type NamesList = { male: string[], female: string[] } | string[];
+interface NamesList {
+  male?: string[],
+  female?: string[],
+  [key: string]: any
+}
 
 class NameGenerator implements ApeType {
   private useFirstName: boolean = true;

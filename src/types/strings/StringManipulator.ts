@@ -6,7 +6,7 @@ export class StringManipulator implements ApeType {
   private shouldRandomizeContent = false;
   private randomLength = -1;
   private minRandomLength = 1;
-  private length: number = null;
+  private length: number | null = null;
   private shouldRandomizeSequence: boolean = false;
   private shouldRemovePunctuations: boolean = false;
 
@@ -48,7 +48,7 @@ export class StringManipulator implements ApeType {
   }
 
   private getResultLength() {
-    let length = Math.min(this.length, this.stringAsArray.length);
+    let length = Math.min(this.length as number, this.stringAsArray.length);
     const randomLength = Math.min(this.randomLength + 1, length);
 
     if (randomLength > 0) {

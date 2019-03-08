@@ -4,7 +4,7 @@ class ApeImage implements ApeType {
   private baseSrc: string = 'https://imgplaceholder.com';
   private imgWidth: number = 420;
   private imgHeight: number = 320;
-  private id: string;
+  private id: string = '0';
   private random: boolean = true;
 
   width(width: number) {

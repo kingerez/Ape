@@ -2,7 +2,8 @@
   "name": "ape",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kingerez/Ape"
@@ -11,22 +12,14 @@
     "lib/**/*"
   ],
   "scripts": {
-    "start": "webpack --watch",
+    "start": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --outDir ./lib",
+    "build": "tsc",
     "prepare": "npm run build"
   },
   "author": "Erez Rosenbloom",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-typescript": "^7.1.0",
-    "ts-loader": "^5.3.3",
-    "tslint": "^5.12.1",
-    "typescript": "^3.2.4",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
-  },
-  "dependencies": {
-    "@types/node": "^11.10.5"
+    "typescript": "^3.2.4"
   }
 }

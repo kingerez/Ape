@@ -1,6 +1,6 @@
 import { ApeType } from './ApeType';
 
-export type ApePattern = any[] | {};
+export type ApePattern = { [key: string]: any };
 
 const instanceofApeType = (object: any): object is ApeType => {
   return 'generate' in object;
@@ -13,9 +13,9 @@ export const apeGenerator = (pattern: ApePattern) => {
     return pattern.generate();
   }
 
-  const resultObject = pattern instanceof Array ? [] : {};
-  Object.entries(pattern).forEach(entry => {
-    const [key, value] = entry;
+  const resultObject: ApePattern = pattern instanceof Array ? [] : {};
+  Object.keys(pattern).forEach(key => {
+    const value: any = pattern[key];
     resultObject[key] = apeGenerator(value);
   });
 
