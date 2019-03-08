@@ -47,6 +47,13 @@ export class StringManipulator implements ApeType {
     return this;
   }
 
+  private applyPunctuationPolicy(str: string) {
+    return (this.shouldRemovePunctuations
+      ? str.replace(punctuationsRegex, '')
+      : str
+    );
+  }
+
   private getResultLength() {
     let length = Math.min(this.length as number, this.stringAsArray.length);
     const randomLength = Math.min(this.randomLength + 1, length);
@@ -62,10 +69,10 @@ export class StringManipulator implements ApeType {
   private getFinalString(stringAsArray: string[]) {
     const result = [...stringAsArray];
     if (this.shouldRandomizeContent) {
-      return this.randomizeStringArrayOrder(result).join(' ');
+      return this.applyPunctuationPolicy(this.randomizeStringArrayOrder(result).join(' '));
     }
 
-    return this.shouldRemovePunctuations ? result.join(' ').replace(punctuationsRegex, '') : result.join(' ');
+    return this.applyPunctuationPolicy(result.join(' '));
   }
 
   private randomizeStringArrayOrder(stringAsArray: string[]) {
