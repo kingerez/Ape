@@ -7,8 +7,8 @@ import {
   color,
   date,
   arrayOf,
-} from './types';
-import { Ape } from './ApeBuilder';
+} from './src/types';
+import { Ape } from './src/ApeBuilder';
 
 exports.Ape = Ape;
 
