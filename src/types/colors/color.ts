@@ -10,7 +10,7 @@ class Color implements ApeType {
   private alpha: number = 1;
 
   specific(hex: string) {
-    this.color = hex;
+    this.color = hex.replace('#', '');
     this.randomColor = false;
     return this;
   }

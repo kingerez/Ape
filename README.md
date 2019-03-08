@@ -127,15 +127,17 @@ color().setAlpha(0.5)
 ### date
 Generates a date. Mutation methods:
 
-| Method          | Arguments | Description                            |
-| --------------- | --------- | -------------------------------------- |
-| random          | None      | Generates a random date                |
-| startMinutesAgo | Number    | Sets the minimum date to x minutes ago |
-| startDaysAgo    | Number    | Sets the minimum date to x days ago    |
-| startYearsAgo   | Number    | Sets the minimum date to x years ago   |
-| endMinutesAgo   | Number    | Sets the maximum date to x minutes ago |
-| endDaysAgo      | Number    | Sets the maximum date to x days ago    |
-| endYearsAgo     | Number    | Sets the maximum date to x years ago   |
+| Method          | Arguments | Description                                         |
+| --------------- | --------- | --------------------------------------------------- |
+| random          | None      | Generates a random date between Jan 1, 1970 and now |
+| startMinutesAgo | Number    | Sets the minimum date to x minutes ago              |
+| startDaysAgo    | Number    | Sets the minimum date to x days ago                 |
+| startYearsAgo   | Number    | Sets the minimum date to x years ago                |
+| endMinutesAgo   | Number    | Sets the maximum date to x minutes ago              |
+| endDaysAgo      | Number    | Sets the maximum date to x days ago                 |
+| endYearsAgo     | Number    | Sets the maximum date to x years ago                |
+| startAt         | Date      | Sets the start time                                 |
+| endAt           | Date      | Sets the end time                                   |
 
 ```
 date().random().startYearsAgo(30)

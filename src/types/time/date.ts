@@ -2,7 +2,7 @@ import { ApeType } from '../../ApeType';
 import { randRange } from '../../utils/randomizer';
 
 class ApeDate implements ApeType {
-  private startDate: Date = new Date();
+  private startDate: Date = new Date(0);
   private endDate: Date = new Date();
   private useRandom: boolean = false;
 
@@ -50,6 +50,16 @@ class ApeDate implements ApeType {
   endYearsAgo(years: number) {
     const yearsInMS = this.yearInMS * years;
     this.endDate = new Date(this.now - yearsInMS);
+    return this;
+  }
+
+  startAt(date: Date) {
+    this.startDate = new Date(date);
+    return this;
+  }
+
+  endAt(date: Date) {
+    this.endDate = new Date(date);
     return this;
   }
 
