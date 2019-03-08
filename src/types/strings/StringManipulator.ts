@@ -8,6 +8,8 @@ export class StringManipulator implements ApeType {
   private minRandomLength = 1;
   // -1 to return all string, positive value is the maximum number of characters
   private length: number = null;
+  // create the string sequence from random words within the original text, and not according to its original order
+  private shouldRandomizeSequence: boolean = false;
 
   private stringAsArray: string[] = [];
 
@@ -36,6 +38,11 @@ export class StringManipulator implements ApeType {
     return this;
   }
 
+  randomSequence() {
+    this.shouldRandomizeSequence = true;
+    return this;
+  }
+
   private getResultLength() {
     let length = Math.min(this.length, this.stringAsArray.length);
     const randomLength = Math.min(this.randomLength + 1, length);
@@ -51,19 +58,30 @@ export class StringManipulator implements ApeType {
   private getFinalString(stringAsArray: string[]) {
     const result = [...stringAsArray];
     if (this.shouldRandomizeContent) {
-      for (let i = result.length - 1; i > 0; i = i - 1) {
-        const random = Math.floor(Math.random() * (i + 1));
-        [result[i], result[random]] = [result[random], result[i]];
-      }
+      return this.randomizeStringArrayOrder(result).join(' ');
     }
 
     return result.join(' ');
   }
 
+  private randomizeStringArrayOrder(stringAsArray: string[]) {
+    const result = [...stringAsArray]
+    for (let i = result.length - 1; i > 0; i = i - 1) {
+      const random = Math.floor(Math.random() * (i + 1));
+      [result[i], result[random]] = [result[random], result[i]];
+    }
+
+    return result;
+  }
+
   generate() {
     // get actual length
     const length = this.getResultLength();
-    const baseStringArray = this.stringAsArray.slice(0, length);
+    const baseStringArray = (
+      this.shouldRandomizeSequence
+        ? this.randomizeStringArrayOrder(this.stringAsArray)
+        : this.stringAsArray
+    ).slice(0, length);
     return this.getFinalString(baseStringArray);
   }
 }
