@@ -78,7 +78,7 @@ class ApeMail implements ApeType {
   aol() { return this.setProvider(PROVIDERS.AOL) }
 
   generate() {
-    return `${this.getUser()}@${this.getProvider()}`;
+    return `${this.getUser().toLowerCase()}@${this.getProvider()}`;
   }
 }
 
