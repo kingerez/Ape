@@ -1,7 +1,5 @@
-import { firstNames } from '../../data/firstNameLists';
-import { lastNames } from '../../data/lastNameList';
-import { middleNames } from '../../data/middleNameList';
-import { Gender, randomGender } from '../../data/genders';
+import { randomFirstName, randomMiddleName, randomLastName } from '../../utils/randomizer';
+import { Gender } from '../../data/genders';
 import { ApeType } from '../../ApeType';
 
 interface NamesList {
@@ -17,13 +15,6 @@ class NameGenerator implements ApeType {
   private useMiddleName: boolean = false;
   private useAbbrMiddleName: boolean = false;
   private gender: Gender = 'random';
-
-  private generateRandomName(nameList: NamesList, gender: Gender, abbr: boolean = false): string {
-    const lowerCasedGender = gender.toLowerCase();
-    const names: string[] = lowerCasedGender in nameList ? nameList[lowerCasedGender] : nameList;
-    const index = Math.floor(Math.random() * names.length);
-    return abbr ? names[index].charAt(0) + '.' : names[index];
-  }
 
   male() {
     this.gender = 'Male';
@@ -65,13 +56,12 @@ class NameGenerator implements ApeType {
 
   generate() {
     const finalName = [];
-    const gender = this.gender === 'random' ? randomGender() : this.gender;
-    this.useFirstName && finalName.push(this.generateRandomName(firstNames, gender));
-    this.useMiddleName && finalName.push(this.generateRandomName(middleNames, gender, this.useAbbrMiddleName));
+    this.useFirstName && finalName.push(randomFirstName(this.gender, false));
+    this.useMiddleName && finalName.push(randomMiddleName(this.gender, this.useAbbrMiddleName));
 
     if (this.useLastName) {
       const shouldAddComma = this.useLastNameFirst && this.useFirstName || this.useMiddleName;
-      let lastName = this.generateRandomName(lastNames, gender) + (shouldAddComma ? ',' : '');
+      let lastName = randomLastName(false) + (shouldAddComma ? ',' : '');
       finalName[this.useLastNameFirst ? 'unshift' : 'push'](lastName);
     }
 

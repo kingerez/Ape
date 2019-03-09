@@ -6,3 +6,4 @@ export { arrayOf } from '../operations/arrayOf';
 export { date } from './time/date';
 export { image } from './images/image';
 export { color } from './colors/color';
+export { email } from './web/email';
