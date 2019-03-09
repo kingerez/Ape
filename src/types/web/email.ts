@@ -23,14 +23,10 @@ class ApeMail implements ApeType {
     return providersAsArray[index];
   }
 
-  private shouldUseLastName() {
-    return this.useDotNotation || Math.floor(Math.random() * 2) === 0;
-  }
-
   private getUser() {
     if (this.user !== '') return this.user;
     let name = randomFirstName(this.gender, false);
-    if (this.shouldUseLastName()) {
+    if (this.useDotNotation) {
       const lastName = randomLastName(false);
       name = `${name}.${lastName}`;
     }
