@@ -78,8 +78,7 @@ class ApeMail implements ApeType {
   aol() { return this.setProvider(PROVIDERS.AOL) }
 
   generate() {
-    const provider = this.getProvider();
-
+    return `${this.getUser()}@${this.getProvider()}`;
   }
 }
 
