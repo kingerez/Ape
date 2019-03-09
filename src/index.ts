@@ -1,4 +1,4 @@
-import { loremIpsum, age, arrayOf, name, date, image, fromValues, color } from './types';
+import { loremIpsum, age, arrayOf, name, date, image, fromValues, color, email } from './types';
 
 import { Ape } from './ApeBuilder';
 
@@ -12,4 +12,5 @@ export {
   image,
   fromValues,
   color,
+  email,
 };
