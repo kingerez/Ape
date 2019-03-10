@@ -34,6 +34,13 @@ class ApeMail implements ApeType {
     return name;
   }
 
+  gmail() { return this.setProvider(PROVIDERS.GMAIL) }
+  outlook() { return this.setProvider(PROVIDERS.OUTLOOK) }
+  icloud() { return this.setProvider(PROVIDERS.ICLOUD) }
+  yahoo() { return this.setProvider(PROVIDERS.YAHOO) }
+  aol() { return this.setProvider(PROVIDERS.AOL) }
+
+  // Yes, it's naive
   setProvider(provider: string) {
     this.provider = provider;
     return this;
@@ -66,12 +73,6 @@ class ApeMail implements ApeType {
     this.provider = splitEmail[1];
     return this;
   }
-
-  gmail() { return this.setProvider(PROVIDERS.GMAIL) }
-  outlook() { return this.setProvider(PROVIDERS.OUTLOOK) }
-  icloud() { return this.setProvider(PROVIDERS.ICLOUD) }
-  yahoo() { return this.setProvider(PROVIDERS.YAHOO) }
-  aol() { return this.setProvider(PROVIDERS.AOL) }
 
   generate() {
     return `${this.getUser().toLowerCase()}@${this.getProvider()}`;
