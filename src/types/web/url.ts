@@ -6,7 +6,7 @@ class ApeUrl implements ApeType {
   private protocol: Protocol = 'random';
   private urlDomain: string = 'www.loremipsum.com';
   private urlPath: string[] = [];
-  private useRandomPath: boolean = false;
+  private useRandomPath: boolean = true;
   private useRandomDomain: boolean = true;
 
   private getProtocol() {
@@ -44,11 +44,6 @@ class ApeUrl implements ApeType {
   path(path: string[]) {
     this.useRandomPath = false;
     this.urlPath = path;
-    return this;
-  }
-
-  randomPath() {
-    this.useRandomPath = true;
     return this;
   }
 
