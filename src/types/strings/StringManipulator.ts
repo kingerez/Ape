@@ -9,6 +9,7 @@ export class StringManipulator implements ApeType {
   private length: number | null = null;
   private shouldRandomizeSequence: boolean = false;
   private shouldRemovePunctuations: boolean = false;
+  private shouldUseStaticLength: boolean = false;
 
   private stringAsArray: string[] = [];
 
@@ -29,6 +30,12 @@ export class StringManipulator implements ApeType {
 
   maxLength(length: number) {
     this.length = length;
+    return this;
+  }
+
+  staticLength(length: number) {
+    this.length = length;
+    this.shouldUseStaticLength = true;
     return this;
   }
 
@@ -56,7 +63,7 @@ export class StringManipulator implements ApeType {
 
   private getResultLength() {
     let length = Math.min(this.length as number, this.stringAsArray.length);
-    const randomLength = Math.min(this.randomLength + 1, length);
+    const randomLength = this.shouldUseStaticLength ? length : Math.min(this.randomLength + 1, length);
 
     if (randomLength > 0) {
       const minRandomLength = Math.max(1, Math.min(this.minRandomLength, randomLength - 1));
