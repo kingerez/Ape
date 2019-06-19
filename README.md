@@ -4,6 +4,7 @@ The Ape API is how I thought a data-mocker API should look like. I needed it to 
 
 ## Why Ape?
 Because apes like to mimic (or "mock") real human behavior... ;)
+Also, API sounds like Ape-PI.
 
 ## Usage
 Use the Ape function to generate a new mock object. Ape receives a template object that is consisted of string keys and primitive or Ape operators as values:
