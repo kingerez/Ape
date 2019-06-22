@@ -10,7 +10,7 @@ Also, API sounds like Ape-PI.
 Use the Ape function to generate a new mock object. Ape receives a template object that is consisted of string keys and primitive or Ape operators as values:
 
 ```javascript
-import Ape, { name, age } from 'ape';
+import Ape, { name, age } from 'ape-mock';
 
 const template = Ape({
   firstName: name().male(),
@@ -69,6 +69,21 @@ Generate a random age. Mutation methods:
 ```javascript
 age().teenager()
 // will generate an age between 14 and 20
+```
+
+### text
+Manipulate a supplied string.
+
+| Method          | Arguments | Description                                                    |
+| --------------- | --------- | -------------------------------------------------------------- |
+| randomizeLength | Number    | Get a random number of words between 1 and the string's length |
+| minLength       | Number    | Set the minimum length of the randomLength method              |
+| maxLength       | Number    | Set the maximum length of the randomLength method              |
+| randomizeOrder  | None      | Randomize the order of the result string                       |
+| randomSequence  | None      | Randomize the string *before* exctracting the text             |
+
+```javascript
+text('We are the Borg. Your biological and technological distinctiveness will be added to our own. Resistance is futile.').maxLength(4)
 ```
 
 ### loremIpsum

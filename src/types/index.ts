@@ -1,3 +1,4 @@
+export { text } from './strings/text';
 export { loremIpsum } from './strings/loremIpsum';
 export { name } from './strings/name';
 export { fromValues } from '../operations/fromValues';
