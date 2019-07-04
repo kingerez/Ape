@@ -2,12 +2,6 @@ import { randomFirstName, randomMiddleName, randomLastName } from '../../utils/r
 import { Gender } from '../../data/genders';
 import { ApeType } from '../../ApeType';
 
-interface NamesList {
-  male?: string[],
-  female?: string[],
-  [key: string]: any
-}
-
 class NameGenerator implements ApeType {
   private useFirstName: boolean = true;
   private useLastName: boolean = false;

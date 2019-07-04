@@ -1,6 +1,6 @@
 import { ApeType } from "../../ApeType";
 
-const punctuationsRegex = /(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g;
+export const punctuationsRegex = /(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g;
 
 export class StringManipulator implements ApeType {
   private shouldRandomizeContent = false;
@@ -18,7 +18,7 @@ export class StringManipulator implements ApeType {
     this.length = this.stringAsArray.length;
   }
 
-  randomizeLength(length: number) {
+  randomizeLength(length: number = this.baseString.length) {
     this.randomLength = length;
     return this;
   }

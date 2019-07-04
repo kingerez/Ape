@@ -1,7 +1,7 @@
 {
   "name": "ape-mock",
   "scope": "ape-mock",
-  "version": "0.5.3",
+  "version": "0.5.5",
   "description": "Easily create templates for mock data to use in your APIs or tests",
   "main": "lib/index.js",
   "module": "lib/esm/index.js",
@@ -22,6 +22,10 @@
   "author": "Erez Rosenbloom",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.2.4"
   },
   "bugs": {
@@ -30,10 +34,6 @@
   "homepage": "https://github.com/kingerez/Ape#readme",
   "directories": {
     "lib": "lib"
-  },
-  "dependencies": {
-    "babel-jest": "^24.7.1",
-    "jest": "^24.7.1"
   },
   "keywords": [
     "mock",
