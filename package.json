@@ -22,9 +22,11 @@
   "author": "Erez Rosenbloom",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^3.2.4",
+    "@types/jest": "^24.0.15",
     "babel-jest": "^24.7.1",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.2.4"
   },
   "bugs": {
     "url": "https://github.com/kingerez/Ape/issues"
